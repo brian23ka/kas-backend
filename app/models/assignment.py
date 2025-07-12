@@ -2,6 +2,8 @@ from app import db
 from datetime import datetime
 
 class Assignment(db.Model):
+    __tablename__ = 'assignments'  # Add this line to explicitly set the table name
+
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)

@@ -52,7 +52,13 @@ class StudentAssignmentResource(Resource):
         if identity["role"] != "student":
             return {"message": "Access denied"}, 403
 
-        class_name = identity.get("class") or identity.get("student_class")
+        # Fetch the student from the DB to get their class
+        from app.models.user import User
+        student = User.query.get(identity["id"])
+        if not student:
+            return {"message": "Student not found"}, 404
+
+        class_name = student.student_class
 
         assignments = Assignment.query.filter_by(student_class=class_name).all()
 
@@ -61,6 +67,8 @@ class StudentAssignmentResource(Resource):
                 "id": a.id,
                 "title": a.title,
                 "content": a.content,
+                "subject": a.subject,
+                "due_date": a.due_date.isoformat(),
                 "created_at": a.created_at.isoformat()
             }
             for a in assignments
