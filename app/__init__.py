@@ -8,6 +8,8 @@ from flask_migrate import Migrate
 from dotenv import load_dotenv
 import os
 
+
+
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 jwt = JWTManager()
@@ -36,6 +38,8 @@ def create_app():
     api.add_resource(StudentLoginResource, "/api/auth/student/login")
     from app.resources.student import StudentChangePasswordResource
     api.add_resource(StudentChangePasswordResource, "/api/student/change-password")
+    from app.resources.admission import AdmissionLetterSubmissionResource
+    api.add_resource(AdmissionLetterSubmissionResource, "/api/admission/apply")
 
 
 
