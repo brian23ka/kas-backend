@@ -24,7 +24,7 @@ def create_app():
     bcrypt.init_app(app)
     jwt.init_app(app)
     migrate.init_app(app, db)
-    
+
     api = Api(app)
 
     # Import and register resources here

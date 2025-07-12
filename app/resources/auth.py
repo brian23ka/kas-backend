@@ -17,6 +17,14 @@ class AdminLoginResource(Resource):
                 identity={"id": user.id, "role": user.role},
                 expires_delta=timedelta(hours=2)
             )
-            return {"token": access_token, "message": "Login successful"}, 200
+            return {
+                "token": access_token,
+                "message": "Login successful",
+                "user": {
+                    "id": user.id,
+                    "name": user.name,
+                    "email": user.email
+                }
+            }, 200
         
         return {"message": "Invalid credentials"}, 401
