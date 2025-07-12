@@ -55,7 +55,11 @@ def create_app():
 
     api.add_resource(AdminAssignmentResource, "/api/admin/assignments")
     api.add_resource(StudentAssignmentResource, "/api/student/assignments")
+    from app.resources.admin_notes import AdminNotesResource
+    from app.resources.student_notes import StudentNotesResource
 
+    api.add_resource(AdminNotesResource, "/api/admin/notes")
+    api.add_resource(StudentNotesResource, "/api/student/notes")
 
 
     return app

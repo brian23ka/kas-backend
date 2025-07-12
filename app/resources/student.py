@@ -66,4 +66,4 @@ class StudentChangePasswordResource(Resource):
         db.session.commit()
 
         return {"message": "Password updated successfully"}, 200
-                
+            
