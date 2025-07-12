@@ -30,5 +30,8 @@ def create_app():
     # Import and register resources here
     from app.resources.auth import AdminLoginResource
     api.add_resource(AdminLoginResource, "/api/auth/admin/login")
+    from app.resources.student import StudentCreateResource
+    api.add_resource(StudentCreateResource, "/api/admin/students")
+
 
     return app
