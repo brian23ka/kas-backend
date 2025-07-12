@@ -40,6 +40,15 @@ def create_app():
     api.add_resource(StudentChangePasswordResource, "/api/student/change-password")
     from app.resources.admission import AdmissionLetterSubmissionResource
     api.add_resource(AdmissionLetterSubmissionResource, "/api/admission/apply")
+    from app.resources.admin_admission import (
+    AdminAdmissionListResource,
+    AdminAdmissionApprovalResource,
+    AdminAdmissionRejectionResource
+)
+
+    api.add_resource(AdminAdmissionListResource, "/api/admin/admissions")
+    api.add_resource(AdminAdmissionApprovalResource, "/api/admin/admissions/<int:admission_id>/approve")
+    api.add_resource(AdminAdmissionRejectionResource, "/api/admin/admissions/<int:admission_id>/reject")
 
 
 
