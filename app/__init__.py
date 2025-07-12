@@ -49,6 +49,8 @@ def create_app():
     api.add_resource(AdminAdmissionListResource, "/api/admin/admissions")
     api.add_resource(AdminAdmissionApprovalResource, "/api/admin/admissions/<int:admission_id>/approve")
     api.add_resource(AdminAdmissionRejectionResource, "/api/admin/admissions/<int:admission_id>/reject")
+    from app.resources.student_admission import StudentAdmissionLetterResource
+    api.add_resource(StudentAdmissionLetterResource, "/api/student/admission-letter")
 
 
 
