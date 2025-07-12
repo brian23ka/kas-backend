@@ -32,6 +32,11 @@ def create_app():
     api.add_resource(AdminLoginResource, "/api/auth/admin/login")
     from app.resources.student import StudentCreateResource
     api.add_resource(StudentCreateResource, "/api/admin/students")
+    from app.resources.auth import StudentLoginResource
+    api.add_resource(StudentLoginResource, "/api/auth/student/login")
+    from app.resources.student import StudentChangePasswordResource
+    api.add_resource(StudentChangePasswordResource, "/api/student/change-password")
+
 
 
     return app

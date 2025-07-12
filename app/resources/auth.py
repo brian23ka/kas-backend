@@ -28,3 +28,28 @@ class AdminLoginResource(Resource):
             }, 200
         
         return {"message": "Invalid credentials"}, 401
+
+class StudentLoginResource(Resource):
+    def post(self):
+        data = request.get_json()
+        email = data.get("email")
+        password = data.get("password")
+
+        student = User.query.filter_by(email=email, role="student").first()
+        if student and student.check_password(password):
+            token = create_access_token(
+                identity={"id": student.id, "role": student.role},
+                expires_delta=timedelta(hours=2)
+            )
+            return {
+                "token": token,
+                "message": "Login successful",
+                "user": {
+                    "id": student.id,
+                    "name": student.name,
+                    "email": student.email,
+                    "class": student.student_class
+                }
+            }, 200
+        
+        return {"message": "Invalid credentials"}, 401
