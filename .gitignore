@@ -1,0 +1,55 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask specific
+instance/
+.env
+*.env
+.env.*
+
+# DB
+*.sqlite3
+*.db
+*.bak
+
+# Logs
+*.log
+
+# VSCode / PyCharm / IDE settings
+.vscode/
+.idea/
+
+
+
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+pip-wheel-metadata/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Coverage/testing
+htmlcov/
+.coverage
+.cache
+pytest_cache/
+nosetests.xml
+coverage.xml
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Python egg metadata
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
