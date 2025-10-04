@@ -61,5 +61,9 @@ def create_app():
     api.add_resource(AdminNotesResource, "/api/admin/notes")
     api.add_resource(StudentNotesResource, "/api/student/notes")
 
+    @app.route("/")
+    def index():
+     return "KAS Backend API is running."
 
+    
     return app
